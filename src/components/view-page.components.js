@@ -57,6 +57,7 @@ export default class ViewPage extends Component {
   };
 
   componentDidMount() {
+    console.log(`${process.env.REACT_APP_PORT}/postings/viewPost`)
     const cookies = new Cookies();
     cookies.remove('diary');
     var retrival = cookies.get('jwt');
@@ -79,7 +80,7 @@ export default class ViewPage extends Component {
             email : decode.email
         }
 
-        console.log(`${process.env.REACT_APP_PORT}/postings/viewPost`)
+        
         axios.post(`${process.env.REACT_APP_PORT}/postings/viewPost`, info)
         .then((res) => {
             // console.log(res.data.posts);
