@@ -70,7 +70,7 @@ export default class DiaryPage extends Component {
                     uniqueId : diary_retrival
                 }
 
-                axios.post(`${process.env.REACT_APP_PORT}/postings/getPost`, info)
+                axios.post("http://backend-nikki.herokuapp.com/postings/getPost", info)
                 .then((res) => {
                     if (res.data.retrieve == 'Retrieved document') {
                         console.log(res.data.data[0]); 
@@ -95,7 +95,7 @@ export default class DiaryPage extends Component {
                 uniqueId : this.state.uniqueId,
                 description : this.state.data
             }
-            axios.post(`${process.env.REACT_APP_PORT}/postings/updatePost`, info)
+            axios.post("http://backend-nikki.herokuapp.com/postings/updatePost", info)
             .then(res => {
                 console.log("Save Updated");
                 console.log(res);
@@ -113,7 +113,7 @@ export default class DiaryPage extends Component {
             }
             console.log(info);
             // Post data
-            axios.post(`${process.env.REACT_APP_PORT}/postings/createPost`, info)
+            axios.post("http://backend-nikki.herokuapp.com/postings/createPost", info)
             .then(res => {
                 console.log(res.data.post);
                 if (res.data.post == "Successful") {
@@ -142,7 +142,7 @@ export default class DiaryPage extends Component {
             uniqueId: this.state.uniqueId
         }
 
-        axios.post(`${process.env.REACT_APP_PORT}/postings/deletePost`, info)
+        axios.post("http://backend-nikki.herokuapp.com/postings/deletePost", info)
         .then(res => {
             console.log(res);
             const cookies = new Cookies();

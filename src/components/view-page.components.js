@@ -57,7 +57,7 @@ export default class ViewPage extends Component {
   };
 
   componentDidMount() {
-    console.log(`${process.env.REACT_APP_PORT}/postings/viewPost`)
+    console.log("http://backend-nikki.herokuapp.com/postings/viewPost")
     const cookies = new Cookies();
     cookies.remove('diary');
     var retrival = cookies.get('jwt');
@@ -81,7 +81,7 @@ export default class ViewPage extends Component {
         }
 
         
-        axios.post(`${process.env.REACT_APP_PORT}/postings/viewPost`, info)
+        axios.post("http://backend-nikki.herokuapp.com/postings/viewPost", info)
         .then((res) => {
             // console.log(res.data.posts);
             this.setState({
