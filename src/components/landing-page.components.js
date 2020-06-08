@@ -27,12 +27,12 @@ export default class LandingPage extends Component {
         const cookies = new Cookies();
         var retrival = cookies.get('jwt');
         if (retrival === undefined || retrival === null) {
-            console.log("No JWT");
+            // console.log("No JWT");
             this.setState({
                 auth: false
             })
         } else {
-            console.log("found JWT");
+            // console.log("found JWT");
             this.setState({
                 auth: true
             })

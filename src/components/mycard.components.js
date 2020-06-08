@@ -32,7 +32,7 @@ export default class MyCard extends Component {
         // Set timing
         var y_m_d = this.props.createdAt.slice(0,10);
         var h_m_s = this.props.createdAt.slice(11, 19);
-        console.log(h_m_s);
+        // console.log(h_m_s);
 
         var display = ""
         if (this.props.description.length > 30) {

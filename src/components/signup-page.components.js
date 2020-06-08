@@ -30,12 +30,12 @@ export default class SignUpPage extends Component {
         const cookies = new Cookies();
         var retrival = cookies.get('jwt');
         if (retrival === undefined || retrival === null) {
-            console.log("No JWT");
+            // console.log("No JWT");
             this.setState({
                 auth: false
             })
         } else {
-            console.log("found JWT");
+            // console.log("found JWT");
             this.setState({
                 auth: true
             })
@@ -71,12 +71,12 @@ export default class SignUpPage extends Component {
             email : this.state.email,
         }
 
-        console.log(user);
+        // console.log(user);
 
         // Post data
         axios.post("https://backend-nikki.herokuapp.com/users/addUser", user)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         })
         .then(data => {
@@ -91,7 +91,7 @@ export default class SignUpPage extends Component {
         .catch(err => {
             // this.setState({errorMessage: console.err.response.data.errors});
             this.setState({errorMessage: err.response.data.errors});
-            console.log(err.response.data.errors);
+            // console.log(err.response.data.errors);
         })
     }
 

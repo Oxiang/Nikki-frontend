@@ -57,17 +57,17 @@ export default class ViewPage extends Component {
   };
 
   componentDidMount() {
-    console.log("https://backend-nikki.herokuapp.com/postings/viewPost")
+    // console.log("https://backend-nikki.herokuapp.com/postings/viewPost")
     const cookies = new Cookies();
     cookies.remove('diary');
     var retrival = cookies.get('jwt');
     if (retrival === undefined || retrival === null) {
-        console.log("No JWT");
+        // console.log("No JWT");
         this.setState({
             auth: false
         })
     } else {
-        console.log("found JWT");
+        // console.log("found JWT");
         this.setState({
             auth: true
         })

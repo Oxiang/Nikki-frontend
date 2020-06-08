@@ -45,13 +45,13 @@ export default class DiaryPage extends Component {
         
         // check if you are logged-in
         if (retrival === undefined || retrival === null) {
-            console.log("No JWT");
+            // console.log("No JWT");
             this.setState({
                 auth: false
             })
             this.props.history.push('/login');
         } else {
-            console.log("found JWT");
+            // console.log("found JWT");
             this.setState({
                 auth: true
             })
@@ -63,7 +63,7 @@ export default class DiaryPage extends Component {
             
             // if you are logged in, check if u intend to edit a diary
             if (diary_retrival === undefined || diary_retrival === null) {
-                console.log("New Entry");
+                // console.log("New Entry");
             } else {
 
                 let info = {
@@ -73,7 +73,7 @@ export default class DiaryPage extends Component {
                 axios.post("https://backend-nikki.herokuapp.com/postings/getPost", info)
                 .then((res) => {
                     if (res.data.retrieve == 'Retrieved document') {
-                        console.log(res.data.data[0]); 
+                        // console.log(res.data.data[0]); 
                         this.setState({
                             have_id: true,
                             uniqueId: res.data.data[0].uniqueID,
@@ -97,12 +97,12 @@ export default class DiaryPage extends Component {
             }
             axios.post("https://backend-nikki.herokuapp.com/postings/updatePost", info)
             .then(res => {
-                console.log("Save Updated");
-                console.log(res);
+                // console.log("Save Updated");
+                // console.log(res);
                 this.onSavePost();
             })
             .catch(err => {
-                console.log("Error" , err);
+                // console.log("Error" , err);
             })
 
         } else {
@@ -111,18 +111,18 @@ export default class DiaryPage extends Component {
                 email: this.state.email,
                 description: this.state.data
             }
-            console.log(info);
+            // console.log(info);
             // Post data
             axios.post("https://backend-nikki.herokuapp.com/postings/createPost", info)
             .then(res => {
-                console.log(res.data.post);
+                // console.log(res.data.post);
                 if (res.data.post == "Successful") {
                     this.onSuccessPost();
                 }
     
             })
             .catch(err => {
-                console.log("Error!");
+                // console.log("Error!");
                 console.log(err);
                 this.onFailPost();
             })
@@ -144,7 +144,7 @@ export default class DiaryPage extends Component {
 
         axios.post("https://backend-nikki.herokuapp.com/postings/deletePost", info)
         .then(res => {
-            console.log(res);
+            // console.log(res);
             const cookies = new Cookies();
             cookies.remove("diary");
             this.onDeletePost();
@@ -154,7 +154,7 @@ export default class DiaryPage extends Component {
                 }.bind(this), 1100)
         })
         .catch(err => {
-            console.log("Error!", err);
+            // console.log("Error!", err);
         })
 
     }
