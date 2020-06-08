@@ -74,7 +74,7 @@ export default class SignUpPage extends Component {
         console.log(user);
 
         // Post data
-        axios.post("http://backend-nikki.herokuapp.com/users/addUser", user)
+        axios.post("https://backend-nikki.herokuapp.com/users/addUser", user)
         .then(res => {
             console.log(res.data);
             return res.data;

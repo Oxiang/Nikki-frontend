@@ -66,7 +66,7 @@ export default class LoginPage extends Component {
         console.log(user);
 
         // Post data
-        axios.post("http://backend-nikki.herokuapp.com/users/loginUser", user)
+        axios.post("https://backend-nikki.herokuapp.com/users/loginUser", user)
         .then(res => {
             console.log(res.data);
             return res.data;
