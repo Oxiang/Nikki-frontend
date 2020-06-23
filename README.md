@@ -4,6 +4,8 @@ Nikki is a cloud-based diary that provides a cloud platform for people to write 
 
 You can check out Nikki Website at https://frontend-nikki.herokuapp.com/
 
+As a free version using Heroku, the worker will switch to idle and thus require boot up time.
+
 #### Frontend Tech stack
 
 - ReactJS
